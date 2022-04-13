@@ -1,0 +1,57 @@
+buildscript {
+    if (project == rootProject) {
+        repositories {
+            google()
+            mavenCentral()
+        }
+        dependencies {
+            classpath 'com.android.tools.build:gradle:4.2.2'
+        }
+    }
+}
+
+apply plugin: 'com.android.library'
+
+def safeExtGet(prop, fallback) {
+    rootProject.ext.has(prop) ? rootProject.ext.get(prop) : fallback
+}
+
+android {
+    compileSdkVersion safeExtGet('RNStaticServer_compileSdkVersion', 31)
+    buildToolsVersion safeExtGet('RNStaticServer_buildToolsVersion', '30.0.2')
+    defaultConfig {
+        minSdkVersion safeExtGet('RNStaticServer_minSdkVersion', 21)
+        ndkVersion safeExtGet('RNStaticServer_ndkVersion', '21.4.7075529')
+        targetSdkVersion safeExtGet('RNStaticServer_targetSdkVersion', 31)
+        versionCode 1
+        versionName "1.0"
+    }
+    buildTypes {
+        release {
+            minifyEnabled true
+        }
+    }
+    lintOptions {
+        disable 'GradleCompatible'
+    }
+}
+
+repositories {
+    mavenCentral()
+    mavenLocal()
+    maven {
+        // All of React Native (JS, Obj-C sources, Android binaries) is installed from npm
+        url "$rootDir/../node_modules/react-native/android"
+    }
+    maven {
+        // Android JSC is installed from npm
+        url "$rootDir/../node_modules/jsc-android/dist"
+    }
+    google()
+}
+
+dependencies {
+    implementation 'com.facebook.react:react-native:+'  // From node_modules
+    implementation 'org.nanohttpd:nanohttpd:2.3.1'
+    implementation 'org.nanohttpd:nanohttpd-webserver:2.3.1'
+}
