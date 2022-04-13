@@ -3,10 +3,10 @@
   "version": "0.5.1",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/futurepress/react-native-static-server.git",
-    "baseUrl": "https://github.com/futurepress/react-native-static-server"
+    "url": "git+https://github.com/puneetkansal04/host-server.git",
+    "baseUrl": "https://github.com/puneetkansal04/host-server"
   },
-  "homepage": "https://github.com/futurepress/react-native-static-server",
+  "homepage": "https://github.com/puneetkansal04/host-server",
   "title": "React Native Static Server",
   "description": "HTTP static file server for React Native",
   "main": "index.js",
