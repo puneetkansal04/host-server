@@ -1,10 +1,10 @@
-declare module 'react-native-static-server' {
+declare module 'host-server' {
   type Options = {
     localOnly?: boolean
     keepAlive?: boolean
   }
 
-  export default class StaticServer {
+  export default class HostServer {
     constructor(port: number, root?: string, opts?: Options)
 
     port: number
