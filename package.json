@@ -1,5 +1,5 @@
 {
-  "name": "@dr.pogodin/react-native-static-server",
+  "name": "host-server",
   "version": "0.5.1",
   "repository": {
     "type": "git",
